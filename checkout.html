@@ -1,0 +1,87 @@
+<html ng-app="store">
+<meta charset="utf-8"/>
+<head>
+<title>Smart Cart 2 - a javascript jQuery shopping cart plugin</title>
+<script type="text/javascript" src="http://localhost/SmartCart/js/angular.min.js"></script>
+<script type="text/javascript" src="http://localhost/SmartCart/js/app.js"></script>
+<!-- Smart Cart Files Include -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script type="text/javascript" src="http://localhost/SmartCart/js/jquery-3.2.1.min.js"></script>
+
+<style type="text/css">
+  .active{
+    color:red;
+  }
+  li{
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+<div  ng-controller="StoreController as store">
+	<div class="items" ng-init="tab=1" ng-controller="myCtrl as ctrl"> 
+	    <ul > 
+	      <li ng-class="{active:tab === 1}"><a href ng-click="tab=1">Tab1 </a></li>
+	      <li ng-class="{active:tab === 2}"><a href ng-click="tab=2">Tab2</a></li>
+	      <li ng-class="{active:tab === 3}"><a href ng-click="tab=3">Tab3</a></li>
+	      <li ng-class="{active:tab === 4}"><a href ng-click="tab=4">Tab4</a></li>   
+	    </ul>
+	<div class="form-div">
+		<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+<blockquote>
+<b>Stars: {{ reviewCtrl.review.stars}}</b>
+{{ reviewCtrl.review.body}}
+<cite>by: {{ reviewCtrl.review.author}}</cite>
+</blockquote>
+			<select ng-model="reviewCtrl.review.stars" required>
+				<option value="1">1 star</option>
+				<option value="2">2 star</option>
+				<option value="3">3 star</option>
+				<option value="4">4 star</option>
+				<option value="5">5 star</option>
+			</select>
+			<textarea name="body" ng-model="reviewCtrl.review.body" ></textarea>
+			<label>by:</label>
+			<input name="author" ng-model="reviewCtrl.review.author" type="email" />
+			<input type="submit" value="Submit" />
+		</form>		
+	</div>
+	<div ng-show="tab==1">
+		<div  ng-repeat='product in store.products'>
+	      <img ng-src="{{product.image}}">
+	      <h1>{{planet.review.stars}}</h1>
+	      <h2>{{product.price | currency}}</h2>
+	      <p>{{product.description}}</p>
+	      <button ng-show="product.canPurchase">Add to cart</button>
+	    </div>
+	</div>
+	<div ng-show="tab==2">
+	    <div  ng-repeat='planet in store.planets'>
+	      <img ng-src="{{planet.image}}">
+	      <h1>{{planet.review.stars}}</h1>
+	      <h2>{{planet.price | currency}}</h2>
+	      <p>{{planet.description}}</p>
+	      <button ng-show="planet.canPurchase">Add to cart</button>
+	    </div>
+	</div>
+	<div ng-show="tab==3">
+	  	<div  ng-repeat='product in store.products'>
+	      <img ng-src="{{product.image}}">
+	      <h1>{{product.name}}</h1>
+	      <h2>{{product.price | currency}}</h2>
+	      <p>{{product.description}}</p>
+	      <button ng-show="product.canPurchase">Add to cart</button>
+	    </div>
+	</div>
+	<div ng-show="tab==4">
+	 	<div  ng-repeat='product in store.products'>
+	      <img ng-src="{{product.image}}">
+	      <h1>{{product.name}}</h1>
+	      <h2>{{product.price | currency}}</h2>
+	      <p>{{product.description}}</p>
+	      <button ng-show="product.canPurchase">Add to cart</button>
+	    </div> 
+	</div>
+</div>
+</body>
+</html>

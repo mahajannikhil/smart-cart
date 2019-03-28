@@ -1,0 +1,47 @@
+[
+		{
+			"name":"venus",
+				"price":124,
+			"description":"this is the discription for venus ",
+			"image":"images/products/venus.jpg",
+			"canPurchase":false,
+			"soldOut":false,
+			"reviews": [ 
+				{
+					"stars": 5,
+					"body": "I love this product!",
+					"author": "joe@thomas.com"
+				},
+				{
+					"stars": 1,
+					"body": "This product sucks",
+					"author": "tim@hater.com"
+				}
+			]
+		},
+		{
+			"name":"mars",
+				"price":124,
+			"description":"this is the discription for venus ",
+			"image":"images/products/mars.jpg",
+			"canPurchase":false,
+			"soldOut":false,
+		},
+		{
+			"name":"venus",
+				"price":124,
+			"description":"this is the discription for venus ",
+			"image":"images/products/venus.jpg",
+			"canPurchase":false,
+			"soldOut":false,
+		},
+		{
+			"name":"venus",
+				"price":124,
+			"description":"this is the discription for venus ",
+			"image":"images/products/venus.jpg",
+			"canPurchase":false,
+			"soldOut":false,	
+		}
+	]
+

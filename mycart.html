@@ -1,0 +1,47 @@
+<div ng-controller="MycartController as mycart">
+    <div class="cart-product-container">
+        <div class="mycart-heading"><span>My Cart ({{mycart.cartCount}}) </span></div>
+
+        <div class="added-products">
+            <div class="cart-product" ng-repeat='product in mycart.products'>
+                <div class="product-detials-wrapper">
+                    <div class="product-image">
+                        <img src="{{product.image.image1}}">
+                    </div>
+
+                    <div class="cart-product-specs">
+                        <div class="cart-product-name">{{product.name}}
+                        </div>
+                        <div class="cart-product-feature">{{product.description.index}}
+                        </div>
+                        <div class="cart-product-feature product-detailed-feature">{{product.description.a}}
+                        </div>
+                        <div class="cart-product-price">{{product.price | currency:'&#8377;'}}
+                        </div>
+                    </div>
+                    <div class="remove-from-cart">
+                        <button class="btn" ng-click="deleteFromCart($index)">Remove
+                            <a href=""><i class="material-icons">delete</i></a>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="total-amount">
+        <div class="mycart-price-heading"><span>Price Details </span></div>
+        <div class="items-count">
+            <div> Items ({{mycart.cartCount}})</div>
+            <div>{{mycart.totalAmount | currency:'&#8377;'}}</div>
+        </div>
+        <div class="delivery-charges">
+            <div> Delivery Charges</div>
+            <div><span>Free</span></div>
+        </div>
+        <div class="amount-payable">Amount payable</div>
+        <div class="amount-rupees">{{mycart.totalAmount | currency:'&#8377;'}}</div>
+        <!-- <div class="checkout" >	<button type="submit" name="submit" class="btn" ng-click="Checkout()" >Checkout</button> </div> -->
+        <div id="paypal-button" style="display:block"></div>
+    </div>
+</div>

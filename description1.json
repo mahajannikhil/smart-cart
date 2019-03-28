@@ -1,0 +1,39 @@
+[
+ 
+         
+	        {
+				"name" : "mars",
+				"price" : "124",
+				"description" : "ruby ruby ruby ruby",
+				"image" : "images/products/mars.jpg",
+				"canPurchase" : "false",
+				"soldOut": "false"
+			},
+			{
+				"name" : "venus",
+				"price" : "124",
+				"description" : "ruby ruby ruby ruby",
+				"image" : "images/products/venus.jpg",
+				"canPurchase" : "false",
+				"soldOut": "false"
+			},
+			{
+				"name" : "jupiter",
+				"price" : "124",
+				"description" : "ruby ruby ruby ruby",
+				"image" : "images/products/jupiter.jpg",
+				"canPurchase" : "false",
+				"soldOut": "false"
+			},
+			{
+				"name" : "ruby",
+				"price" : "124",
+				"description" : "ruby ruby ruby ruby",
+				"image" : "images/products/product1.jpg",
+				"canPurchase" : "false",
+				"soldOut": "false"
+			}
+
+
+
+]

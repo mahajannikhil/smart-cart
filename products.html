@@ -1,0 +1,142 @@
+ 
+<div ng-app="store" >
+<div class="product-container" ng-controller="StoreController as store">
+	<div class="filters" ng-class="{'state': visible}">
+		<section class="filterText"><h3>Filters</h3></section>
+		<section class="filter-container">
+			<div class="filter-heading">Search</div>
+			<div>
+				<input class="form-control input1" type="text" name="search" ng-model="search" />
+			</div>
+		</section>
+		<section class="filter-container">
+			<div class="filter-heading">Product Search</div>
+			<div>
+				<input class="form-control input1" type="text" name="search" ng-model="searchProduct" />
+			</div>
+		</section>
+		<section class="filter-container">
+			<div  class="filter-heading">Select catagory</div>
+			<div>
+				<select class="input2" ng-model="category"   ng-change="selectedItemChanged($event)" class="form-control" ng-options="x for x in categories">
+					  <option  value="" ng-if="false"></option>
+				</select>
+			</div>
+			<div  class="filter-heading">Search by Brand</div>
+			<div>
+				<form name="form" style="margin-bottom: 0px; height: 24px;">
+					<select class="input3" name="form" id="form" ng-model="Brand" class="form-control" ng-options="x for x in name">
+						  <option value="" ng-if="false">all</option>
+					</select>
+				</form>
+			</div>
+			<input  type="text" value="apple" hidden>
+		</section>
+		<form method="get" name="price-filters">
+		<section class="filter-container" style="border-bottom: 0px;">
+        	<header  class="filter-heading">Price range</header>
+            <main class="values group">
+            	<div class="price-range">
+                    <input class="form-control minValInput input4" name="minVal" id="minVal"  placeholder="₹ Min" type="text" ng-model="price_slider.start[0]"/>
+
+                    <input class="form-control maxValInput input5 margin-left" name="maxVal" id="maxVal"  placeholder="₹ Max" type="text" ng-model="price_slider.start[1]"/>
+                    <span class="margin-left"><input class="submit-price FilterButton btn input6"  type="submit" ng-click="priceFiltering('filter')"  value="Go">
+				    </span>
+                </div>
+            </main>
+		</section>
+		<!--<section class="filter-container">
+			<main>
+				<span>
+					<button style="width: 47%;" ng-click="price_slider.start = [0, 1000000]; clearPrice()" class="clear btn" id="clearPrice"  >	Clear
+           			</button>
+				</span>
+
+			</main>
+		</section>-->
+		</form>
+	</div>
+	<div class="tab1" >
+		<div class="filter-icon" ng-click="showFilters()">
+			Filters<i ng-show="close"  class="material-icons">expand_less</i><i ng-show="!close" class="material-icons">expand_more</i></div>
+		<div   class="product"  ng-repeat='product in store.products | filter:category:catagories |filter:Brand:name | filter:pricefilter | filter:searchProduct:name  | filter:search' ng-click="productDetails()">
+		   	<div class="sold-out-tag" ng-show="{{product.soldOut}}">
+		   	sold out
+		   	</div>
+		    <div ng-class="{'soldOut': product.soldOut == 'true'}" >
+			    <div class="product-image" style="">
+					<img src="{{product.image.image1}}">
+				</div>
+
+				<div class="product-name">{{product.name}}
+				</div>
+				<div class="product-feature"><span>{{product.description.index}}</span>
+				</div>
+				<div class="product-price">{{product.price |  currency:'&#8377;'}}
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div ng-show="store.showPreview"  class="product-preview-popup" id="checkoutPopupOuterDiv">
+		<div class="product-view-block" >
+			<div  class="product-details"  ng-repeat='product in store.productDetailsArray' >
+			   	<div class="productDetails-image" >
+						<img  src="{{product.image.image1}}">
+						<!--<div class="product-detailed-images">
+							<div><img src="{{imageUrl}}"></div>
+							<div><img src="{{product.image.image3}}"></div>
+							<div><img src="{{product.image.image4}}"></div>
+							<div><img src="{{product.image.image5}}"></div>
+						</div>-->
+				</div>
+				<div class="product-detail-specs">
+					<div  >
+						<div class="product-detail-name">{{product.name}}
+						</div>
+						<div class="product-detail-feature">{{product.description.index}}
+						</div>
+						<div class="product-detail-price">{{product.price | currency:'&#8377;'}}
+						</div>
+						<div class="product-detailed-feature">
+							<ul style="list-style: none;padding-left: 10px;">Highlights
+								<li class="product-detailed-feature">{{product.description.a}}
+								</li>
+								<li class="product-detailed-feature">{{product.description.b}}
+								</li>
+								<li class="product-detailed-feature">{{product.description.c}}
+								</li>
+								<li class="product-detailed-feature">{{product.description.d}}
+								</li>
+							</ul>
+						</div>
+					</div>
+					<h2 style="margin: -10px 100px 0 0 ;" ng-show="{{product.soldOut}}">Sold Out</h2>
+					<h2 style="margin: -10px 100px 0 0 ;" ng-hide="{{product.canPurchase}}">Currently Unavailable</h2>
+					<div class="add-to-cart">
+					<button class="btn" ng-show="{{product.canPurchase}}" ng-click="addToCart()"><i class="material-icons">shopping_cart </i> Add to Cart</button>
+					</div>
+			    </div>
+			    <div ng-show="store.showAddedToCart" id="AddedToCart" class="Added-to-cart" >
+					ITEM ADDED
+				</div>
+				<div ng-show="store.alreadyAdded" id="AddedToCart" class="Added-to-cart" >
+					ALREADY ADDED
+				</div>
+                <div class="close-preview"  ng-click="closePreview()">
+                    <span>&#x2716;</span>
+                </div>
+		  	</div>
+		</div>
+		
+		<div id="checkoutPopup" class="checkout-popup" >
+			
+		</div>
+
+	</div>
+	
+</div>
+</div>
+
+
+

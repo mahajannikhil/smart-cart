@@ -1,0 +1,128 @@
+table {
+	width:100%;
+	float:right;
+}
+
+tr{
+	width:50%;
+	height:80px;
+}
+
+label{
+	text-align:left;
+	font-size:15px;
+	
+}
+.login-table{
+	//border:2px;
+	height:100px;
+	width: 400px;
+	//border-left:4px solid #DEDDDD;
+	padding:0px 0px ;
+	background-color:transparent;
+} 
+ #signupTag{
+	 font-size:40px;
+	 padding-right:240px;
+	 font-family:san-serif;
+	 color:#808080;
+}
+ .w3-input{
+ 	background: transparent;
+    padding: 8px;
+    display: block;
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #808080;
+    width: 100%;
+}
+.w3-input:focus{
+	outline:none;
+}
+.w3-btn:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#glow{
+background-color:solid yellow;
+} 
+#firstname , #surname{
+	background-color:solid grey; 
+}
+#mobileNo , #email, #password{
+	width:100%;
+}
+#gender{
+	border:0px;
+	
+}
+#submit{
+	background-image:url ("C:\wamp\www\db-con\css\images\signup.png");
+	border-radius:12px;
+	background-color:#b3b3b3;
+	font-size:20px;
+	font-family:san-serif;
+	outline: none;
+}
+.login,.signup{
+float:right;
+padding:30px 5px 8px 5px;
+margin:-5px 10px 0 0 ;
+background:black;
+color:white;
+display:block;
+cursor:pointer;
+}
+
+.inputname{
+	height:50px;
+	width:200px;
+	border-radius:7px;
+	//border-color:#bdc7d8;
+	margin:3px;
+	font-size:18px;
+	padding:0 0 0 12px;
+	border-left-color:transparent;
+	border-top-color:transparent;
+	}
+	
+.input{
+	
+	height:50px;
+	width:408px;
+	border-radius:9px;
+	//border-color:#bdc7d8;
+	margin:3px;
+	font-size:18px;
+	padding:0 0 0 12px;
+	border-left-color:transparent;
+	border-top-color:transparent;
+	
+	
+}	
+.birthdayInput{
+	height:20px;
+	width:180px;
+	border-radius:7px;
+	border-color:#bdc7d8;
+	margin:3px;
+	font-size:18px;
+	padding:0 0 0 12px;
+
+
+} 
+ 
+.half-td {
+	width:50%;
+}
+
+.login-table label{
+	//border:2px solid red;
+	width:10px;
+	height:60px;
+	
+}
+.disable{
+	pointer-events:none;
+	opacity:.5;
+	
+}
